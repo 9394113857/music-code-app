@@ -1,37 +1,25 @@
-Get-ChildItem -Recurse | Select-Object FullName
+# First Part 1: commands
+# Change directory to the directory containing your virtual environment scripts
+cd D:\environments\music-code-env\Scripts
 
-Explanation:-
-This command recursively lists all files and directories along with their full paths. 
-Run this command in the root directory of your project in the integrated terminal of Visual Studio Code, 
-and it will display the full directory structure including files.
+# Activate the virtual environment
+.\Activate.ps1
 
+# Now, change directory to the directory containing your Flask application
+cd D:\codes\music-code\app
 
-Question?
-Ans:- Yes, you can iterate through the results of the Get-ChildItem command 
-and save them to a text file temporarily. 
-
-Here's how you can do it:
-# Retrieve all items (files and directories) in the current directory and its subdirectories
-$items = Get-ChildItem -Recurse | Select-Object FullName
-
-# Define the path for the text file
-$textFilePath = "directory_structure.txt"
-
-# Iterate through each item and append its full path to the text file
-foreach ($item in $items) {
-    Add-Content -Path $textFilePath -Value $item.FullName
-}
-
-# Output a message indicating the text file has been created
-Write-Output "Directory structure has been saved to $textFilePath"
-
-# Open the text file using the default program
-Invoke-Item $textFilePath
+# Run the Flask application using Python 
+py app.py
 
 
+===================
 
-Explanation:-
-You can run this script in the integrated terminal of Visual Studio Code 
-to create the directory_structure.txt file containing the directory structure temporarily.
+# Second Part 2: commands
+# Change directory to the directory containing your virtual environment scripts
+D:\environments\music-code-env\Scripts
 
+# Deactivate the virtual environment
+deactivate
 
+# Now, change directory to the directory containing your Flask application
+D:\codes\music-code\app
